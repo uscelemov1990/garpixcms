@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'include/breadcrumb.html' %}
+
+<h1>{{ object.title }}</h1>
+
+{% if object.image %}
+<img src="{{ object.image.url }}" alt="{{ item.title }}">
+{% endif %}
+
+{{ object.text|safe }}
+
+{% endblock %}

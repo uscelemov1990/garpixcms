@@ -1,0 +1,1 @@
+from .opinions import OpinionsViewSet
