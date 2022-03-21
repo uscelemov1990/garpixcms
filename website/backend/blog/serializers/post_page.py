@@ -8,4 +8,4 @@ class PostPageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PostPage
-        fields = '__all__'
+        fields = ('title', 'description', 'image', 'tags', 'get_absolute_url')
