@@ -1,1 +1,1 @@
-from test_post import PostTestCase
+from .test_post import PostTestCase

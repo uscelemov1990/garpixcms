@@ -1,19 +1,11 @@
-from ..forms.feedback import FeedbackForm
+from django.test import TestCase
 from ..models.feedback import Feedback
 
 
-class OpinionFeedbackForm:
-    def test_opinion(self):
-        email = 'list@mail.ru'
-        data = {'email': email, 'comment': 'opinion'}
-        form = FeedbackForm(data=data)
-        form.is_valid()
-        form.save()
-        assert Feedback.objects.filter(email=email).count == 1
+class OpinionFeedbackForm(TestCase):
+    def setUp(self):
+        Feedback.objects.create(email='list@mail.ru', comment='opinion')
 
-    def test_bad(self):
-        data = {'email': 'aaa', 'comment': 'opinion'}
-        form = FeedbackForm(data=data)
-        is_valid = form.is_valid()
-        assert not is_valid
-        assert 'email' in form.errors
+    def test_valid_post(self):
+        feedback = Feedback.objects.get(email='list@mail.ru')
+        self.assertTrue(feedback)

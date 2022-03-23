@@ -6,6 +6,6 @@ class PostTestCase(TestCase):
     def setUp(self):
         PostPage.objects.create(title='title', description='description', text='text')
 
-    def valid_post(self):
+    def test_valid_post(self):
         post = PostPage.objects.get(title='title')
         self.assertTrue(post)
